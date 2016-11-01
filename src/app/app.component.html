@@ -1,6 +1,14 @@
-<!--<md-sidenav-layout fullscreen>
+<md-sidenav-layout fullscreen>
   <md-toolbar color="primary">
     Learn HTML
   </md-toolbar>
-</md-sidenav-layout>-->
-<router-outlet></router-outlet>
+
+  <md-tab-group>
+    <md-tab>
+      <template md-tab-label>
+        About
+      </template>
+      <router-outlet> </router-outlet> 
+    </md-tab>
+  </md-tab-group>
+</md-sidenav-layout>
