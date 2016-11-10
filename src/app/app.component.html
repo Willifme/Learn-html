@@ -2,13 +2,8 @@
   <md-toolbar color="primary">
     Learn HTML
   </md-toolbar>
-
-  <md-tab-group>
-    <md-tab>
-      <template md-tab-label>
-        About
-      </template>
-      <router-outlet> </router-outlet> 
-    </md-tab>
-  </md-tab-group>
+<content-paragraph [title]="this.markdownStorage.chapterOne.paragraphs[0].title"
+                   [content]="this.markdownStorage.chapterOne.paragraphs[0].content">
+</content-paragraph>
+<router-outlet></router-outlet>
 </md-sidenav-layout>

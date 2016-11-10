@@ -1,0 +1,7 @@
+<md-card>
+    <md-card-subtitle>{{title}}</md-card-subtitle>
+    
+    <md-card-content>
+        <div [innerHtml]="this.markdown.compile(content) | sanitiseHtml"></div>
+    </md-card-content>
+</md-card>
