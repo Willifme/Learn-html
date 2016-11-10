@@ -10,8 +10,8 @@ import { SanitiseHtmlPipe } from '../sanitise-html.pipe';
   providers: [MarkdownService],
 })
 export class ParagraphComponent {
-  @Input() public title: string;
-  @Input() public content: string;
+  @Input() private title: string;
+  @Input() private content: string;
 
   constructor(private markdown:MarkdownService) { }
 }

@@ -3,9 +3,10 @@
     Learn HTML
   </md-toolbar>
   <div class="app-content">
-    <content-paragraph [title]="this.markdownStorage.chapterOne.paragraphs[0].title"
-                       [content]="this.markdownStorage.chapterOne.paragraphs[0].content">
-    </content-paragraph>
+    {{chapter | json}}
+<!--    <div *ngFor="let chapter of chapters">
+      <content-chapter [chapter]="chapter"></content-chapter>
+    </div> -->
     
     <router-outlet></router-outlet>
   </div>

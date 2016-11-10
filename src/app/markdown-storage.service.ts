@@ -6,7 +6,7 @@ interface Paragraph {
     images?: string;
 }
 
-interface Chapter {
+export interface Chapter {
     title: string;
     paragraphs: Paragraph[];
     exercises?: Paragraph[];
@@ -14,6 +14,7 @@ interface Chapter {
 
 @Injectable()
 export class MarkdownStorageService {
+/*    
     public chapterOne: Chapter = {
         title: '# Introduction',
         paragraphs: [
@@ -33,4 +34,5 @@ Remember HTML documents must be text only as browsers can only read text, this m
             }
         ]
     };
+    */
 }

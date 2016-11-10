@@ -1,0 +1,3 @@
+<div *ngFor="let paragraph of chapter.paragraphs | async">
+  <content-paragraph [title]="paragraph.title" [content]="paragraph.content"></content-paragraph>
+</div>
