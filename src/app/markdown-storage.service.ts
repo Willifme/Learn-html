@@ -23,7 +23,7 @@ export class MarkdownStorageService {
                 content: `
 HTML is a  **markup**  language for  **describing**  web documents (web pages).
 
-- HTML stands for  **H** yper  **T** ext  **M** arkup  **L** anguage
+- HTML stands for  **H**yper  **T**ext  **M**arkup  **L**anguage
 - A markup language is a set of  **markup tags**
 - HTML documents are described by  **HTML tags**
 - Each HTML tag  **describes**  different document content

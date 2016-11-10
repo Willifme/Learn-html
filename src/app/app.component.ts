@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { LocalStorageService, SessionStorageService } from 'ng2-webstorage';
 
 import { MarkdownStorageService } from './markdown-storage.service';
 import { SanitiseHtmlPipe } from './sanitise-html.pipe';
@@ -11,9 +10,5 @@ import { SanitiseHtmlPipe } from './sanitise-html.pipe';
   providers: [MarkdownStorageService],
 })
 export class AppComponent {
-  public markdownString: string;
-  public content: string;
-  
- constructor(private markdownStorage: MarkdownStorageService, 
-             private localStorage: LocalStorageService) {}
+ constructor(private markdownStorage: MarkdownStorageService) {} 
 }

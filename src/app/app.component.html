@@ -2,8 +2,11 @@
   <md-toolbar color="primary">
     Learn HTML
   </md-toolbar>
-<content-paragraph [title]="this.markdownStorage.chapterOne.paragraphs[0].title"
-                   [content]="this.markdownStorage.chapterOne.paragraphs[0].content">
-</content-paragraph>
-<router-outlet></router-outlet>
+  <div class="app-content">
+    <content-paragraph [title]="this.markdownStorage.chapterOne.paragraphs[0].title"
+                       [content]="this.markdownStorage.chapterOne.paragraphs[0].content">
+    </content-paragraph>
+    
+    <router-outlet></router-outlet>
+  </div>
 </md-sidenav-layout>
