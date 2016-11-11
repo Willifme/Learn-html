@@ -6,6 +6,8 @@ import { MaterialModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
+import { ToolbarTitleService } from './toolbar-title.service';
+
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
@@ -46,7 +48,7 @@ export const firebaseAuthConfig = {
       { path: '', component: HomeComponent }
     ])
   ],
-  providers: [],
+  providers: [ToolbarTitleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
