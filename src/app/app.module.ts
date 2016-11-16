@@ -9,7 +9,6 @@ import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { ToolbarTitleService } from './toolbar-title.service';
 
 import { AppComponent } from './app.component';
-import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { SanitiseHtmlPipe } from './sanitise-html.pipe';
 import { ParagraphComponent } from './paragraph/paragraph.component';
@@ -31,7 +30,6 @@ export const firebaseAuthConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent,
     HomeComponent,
     SanitiseHtmlPipe,
     ParagraphComponent,
@@ -44,7 +42,8 @@ export const firebaseAuthConfig = {
     MaterialModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
     RouterModule.forRoot([
-      { path: '', component: HomeComponent }
+      { path: '', component: HomeComponent },
+      { path: 'chapter/:id', component: ChapterComponent }
     ])
   ],
   providers: [ToolbarTitleService],
