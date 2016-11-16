@@ -44,7 +44,6 @@ export const firebaseAuthConfig = {
     MaterialModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
     RouterModule.forRoot([
-      { path: 'about', component: AboutComponent },
       { path: '', component: HomeComponent }
     ])
   ],
