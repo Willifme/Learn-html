@@ -1,4 +1,6 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 
 import { MarkdownService } from '../markdown.service';
 import { ToolbarTitleService } from '../toolbar-title.service';
@@ -11,18 +13,14 @@ import { Chapter } from '../markdown';
   styleUrls: ['./chapter.component.css'],
   providers: [MarkdownService, ToolbarTitleService]
 })
-export class ChapterComponent implements OnDestroy, OnInit {
-  @Input() private chapter: Chapter; 
+export class ChapterComponent implements OnInit {
+  private chapter: Chapter; 
   
-  constructor(private markdown: MarkdownService, private toolbarTitle: ToolbarTitleService) {}
-
-  ngOnInit(): void {
- //   this.toolbarTitle.title = this.markdown.compile(this.chapter.title);
-
-//    this.toolbarTitle.titleChange.subscribe(title => this.toolbarTitle.title = title);
-  }
-
-  ngOnDestroy(): void {
-    this.toolbarTitle.titleChange.unsubscribe();
+  constructor(private markdown: MarkdownService, private route: ActivatedRoute) {}
+  
+  ngOnInit() {
+    this.route.params.subscribe(p => {
+      this.chapter = this.markdown.findChapterById(p['id']);
+    });
   }
 }

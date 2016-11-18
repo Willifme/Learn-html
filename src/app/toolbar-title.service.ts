@@ -9,7 +9,20 @@ export class ToolbarTitleService {
 
   private name: string = "Learn HTML";
   
-  public changeTitle(newTitle?: string): void {
+  constructor(public title: string) { 
+  }
+  
+  /*
+  get title(): string {
+    // Only append the title if the title is set (e.g. not at root)
+    if (title) {
+      return `${this.name} - ${this.title}`
+    } else {
+      return this.name;
+    }
+  }
+  
+  set title(newString: string) {
     // Only append the title if the title is set (e.g. not at root)
     if (newTitle) {
       this.titleChange.next(`${this.name} - ${newTitle}`);
@@ -17,4 +30,8 @@ export class ToolbarTitleService {
       this.titleChange.next(this.name);
     } 
   }
+      this.title = this.name;
+    }
+  }
+  */
 }
