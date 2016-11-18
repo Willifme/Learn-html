@@ -14,11 +14,12 @@ import { Chapter } from '../markdown';
 })
 export class ChapterComponent implements OnInit {
   private chapter: Chapter; 
-  private id: Observable<number>;
   
   constructor(private markdown: MarkdownService, private route: ActivatedRoute) {}
   
   ngOnInit() {
-    this.route.params.subscribe(p => this.chapter = this.markdown.findChapterById(p['id']));
+    this.route.params.subscribe(p => {
+      this.chapter = this.markdown.findChapterById(p['id']);
+    });
   }
 }
