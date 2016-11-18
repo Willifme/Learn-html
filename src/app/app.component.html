@@ -1,12 +1,11 @@
 <md-sidenav-layout fullscreen>
   <md-toolbar color="primary">
-    Learn HTML
+    {{this.title}}
   </md-toolbar>
   <div class="app-content">
     <div *ngFor="let chapter of chapters">
       <content-chapter [chapter]="chapter"></content-chapter>
     </div>
-    
     <router-outlet></router-outlet>
   </div>
 </md-sidenav-layout>

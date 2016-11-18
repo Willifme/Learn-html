@@ -1,12 +1,10 @@
 import { DomSanitizer, SafeHtml, BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ValueProvider } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
-
-import { ToolbarTitleService } from './toolbar-title.service';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
@@ -48,7 +46,7 @@ export const firebaseAuthConfig = {
       { path: '', component: HomeComponent }
     ])
   ],
-  providers: [ToolbarTitleService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

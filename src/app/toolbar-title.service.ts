@@ -1,28 +1,20 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, Optional } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ToolbarTitleService {
-  public title: string;
-  
-  get title(): string {
-    // Only append the title if the title is set (e.g. not at root)
-    if (title) {
-      return `${this.name} - ${this.title}`
-    } else {
-      return this.name;
-    }
-  }
-  
-  set title(newString: string): void {
-    // Only append the title if the title is set (e.g. not at root)
-    if (newString) {
-      this.title = `${this.name} - ${newString}`;
-    } else {
-      this.title = this.name;
-    }
-  }
+  public titleChange: Subject<string> = new Subject<string>();
+  public title$: Observable<string> = this.titleChange.asObservable(); 
 
-  constructor(private name: string, private title: string) { 
-    this.title = title;
+  private name: string = "Learn HTML";
+  
+  public changeTitle(newTitle?: string): void {
+    // Only append the title if the title is set (e.g. not at root)
+    if (newTitle) {
+      this.titleChange.next(`${this.name} - ${newTitle}`);
+    } else {
+      this.titleChange.next(this.name);
+    } 
   }
 }
