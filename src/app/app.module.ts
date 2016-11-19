@@ -8,9 +8,13 @@ import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { SanitiseHtmlPipe } from './sanitise-html.pipe';
 import { ParagraphComponent } from './paragraph/paragraph.component';
 import { ChapterComponent } from './chapter/chapter.component';
+import { LayoutComponent } from './layout/layout.component';
+
+import { SanitiseHtmlPipe } from './sanitise-html.pipe';
+
+import { ToolbarTitleService } from './toolbar-title.service';
 
 // TODO: Update this
 export const firebaseConfig = {
@@ -31,7 +35,8 @@ export const firebaseAuthConfig = {
     HomeComponent,
     SanitiseHtmlPipe,
     ParagraphComponent,
-    ChapterComponent
+    ChapterComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,7 @@ export const firebaseAuthConfig = {
       { path: 'chapter/:id', component: ChapterComponent }
     ])
   ],
-  providers: [],
+  providers: [ToolbarTitleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

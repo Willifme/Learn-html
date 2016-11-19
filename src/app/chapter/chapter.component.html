@@ -1,6 +1,3 @@
-<!-- Todo: Clean up -->
-<h1 [innerHtml]="this.markdown.compile(chapter.title) | sanitiseHtml"></h1>
-
 <div *ngFor="let paragraph of chapter.paragraphs">
   <content-paragraph [title]="paragraph.title" [content]="paragraph.content"></content-paragraph>
 </div>

@@ -4,7 +4,7 @@ import * as marked from 'marked';
 import { Chapter } from './markdown';
 
 const chapterOne: Chapter = {
-    title: '# Introduction',
+    title: 'Introduction',
     paragraphs: [
         {
             title: 'What is HTML?',

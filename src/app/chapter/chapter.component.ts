@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
 
 import { MarkdownService } from '../markdown.service';
 import { ToolbarTitleService } from '../toolbar-title.service';
@@ -11,16 +10,18 @@ import { Chapter } from '../markdown';
   selector: 'content-chapter',
   templateUrl: './chapter.component.html',
   styleUrls: ['./chapter.component.css'],
-  providers: [MarkdownService, ToolbarTitleService]
+  providers: [MarkdownService]
 })
 export class ChapterComponent implements OnInit {
   private chapter: Chapter; 
   
-  constructor(private markdown: MarkdownService, private route: ActivatedRoute) {}
+  constructor(private markdown: MarkdownService, private toolbarTitle: ToolbarTitleService, private route: ActivatedRoute) {}
   
-  ngOnInit() {
-    this.route.params.subscribe(p => {
-      this.chapter = this.markdown.findChapterById(p['id']);
-    });
+  public ngOnInit(): void {
+    this.route.params.subscribe(p => 
+      this.chapter = this.markdown.findChapterById(p['id'])
+    );
+
+    this.toolbarTitle.setTitle(this.chapter.title);
   }
 }
