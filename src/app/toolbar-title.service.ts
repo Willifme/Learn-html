@@ -1,9 +1,32 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, Optional } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ToolbarTitleService {
-  constructor(private name: string, public title: string) { 
+  private title: string;
+  private titleSubject: Subject<string> = new Subject<string>();
+
+  private name: string = "Learn HTML";
+
+  public setTitle(newTitle?: string): void {
+    // Clear the string...
+    this.title = '';
+
+    // Only append the title if the title is set (e.g. not at root)
+    if (newTitle != null) {
+      this.title = `${this.name} - ${newTitle}`;  
+
+    } else {
+      this.title = this.name;
+    }
+
+    this.titleSubject.next(this.title);
   }
+
+  public getTitle(): Observable<string> {
+    return this.titleSubject.asObservable();
+  } 
   
   /*
   get title(): string {
@@ -17,9 +40,12 @@ export class ToolbarTitleService {
   
   set title(newString: string) {
     // Only append the title if the title is set (e.g. not at root)
-    if (newString) {
-      this.title = `${this.name} - ${newString}`;
+    if (newTitle) {
+      this.titleChange.next(`${this.name} - ${newTitle}`);
     } else {
+      this.titleChange.next(this.name);
+    } 
+  }
       this.title = this.name;
     }
   }

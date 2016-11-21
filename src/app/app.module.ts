@@ -1,18 +1,23 @@
 import { DomSanitizer, SafeHtml, BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ValueProvider } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
-import { ToolbarTitleService } from './toolbar-title.service';
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { SanitiseHtmlPipe } from './sanitise-html.pipe';
 import { ParagraphComponent } from './paragraph/paragraph.component';
 import { ChapterComponent } from './chapter/chapter.component';
+import { LayoutComponent } from './layout/layout.component';
+
+import { ChapterResolver } from './chapter/chapter.resolver';
+
+import { SanitiseHtmlPipe } from './sanitise-html.pipe';
+
+import { ToolbarTitleService } from './toolbar-title.service';
+import { MarkdownService } from './markdown.service';
 
 // TODO: Update this
 export const firebaseConfig = {
@@ -33,7 +38,8 @@ export const firebaseAuthConfig = {
     HomeComponent,
     SanitiseHtmlPipe,
     ParagraphComponent,
-    ChapterComponent
+    ChapterComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -43,10 +49,10 @@ export const firebaseAuthConfig = {
     AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
-      { path: 'chapter/:id', component: ChapterComponent }
+      { path: 'chapter/:id', component: ChapterComponent, resolve: { chapter: ChapterResolver } }
     ])
   ],
-  providers: [ToolbarTitleService],
+  providers: [ToolbarTitleService, MarkdownService, ChapterResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

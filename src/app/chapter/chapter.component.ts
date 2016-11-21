@@ -1,25 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+
+import { MarkdownService } from '../markdown.service';
+import { ToolbarTitleService } from '../toolbar-title.service';
 
 import { ParagraphComponent } from '../paragraph/paragraph.component';
-import { MarkdownService } from '../markdown.service';
+
 import { Chapter } from '../markdown';
 
 @Component({
   selector: 'content-chapter',
   templateUrl: './chapter.component.html',
   styleUrls: ['./chapter.component.css'],
-  providers: [MarkdownService]
+  providers: []
 })
 export class ChapterComponent implements OnInit {
   private chapter: Chapter; 
   
-  constructor(private markdown: MarkdownService, private route: ActivatedRoute) {}
+  constructor(private markdown: MarkdownService, private toolbarTitle: ToolbarTitleService, private route: ActivatedRoute) {}
   
-  ngOnInit() {
-    this.route.params.subscribe(p => {
-      this.chapter = this.markdown.findChapterById(p['id']);
-    });
+  public ngOnInit(): void {
+    this.route.data.subscribe(data => this.chapter = data['chapter']);
+
+    console.log(this.chapter);
   }
 }

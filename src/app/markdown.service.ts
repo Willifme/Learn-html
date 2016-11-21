@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 import * as marked from 'marked';
 
 import { Chapter } from './markdown';
 
 const chapterOne: Chapter = {
-    title: '# Introduction',
+    title: 'Introduction',
     paragraphs: [
         {
             title: 'What is HTML?',
@@ -35,7 +37,9 @@ export class MarkdownService {
   }
   
   // TODO: Handle error
-  public findChapterById(id: number): Chapter {
-    return chapters[id];
+  public findChapterById(id: number): Observable<Chapter> {
+    let chapterSubject: Subject<Chapter> = new Subject<Chapter>();
+
+    return chapterSubject.asObservable();
   }
 }
