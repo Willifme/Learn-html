@@ -5,22 +5,11 @@ import * as marked from 'marked';
 
 import { Chapter } from './chapter';
 
-const chapterOne: Chapter = {
-    title: 'Introduction',
-    paragraphs: [
-        {
-            title: 'What is HTML?',
-            content: 'Something here',
-        }
-    ]
-};
-
-const chapters: Chapter[] = [chapterOne, chapterOne];
-
 @Injectable()
 export class MarkdownService {
-
   private markdown: MarkedStatic;
+  
+  public chapters: Chapter[]; 
 
   constructor() { 
     this.markdown = marked;
@@ -38,6 +27,6 @@ export class MarkdownService {
   
   // Why use a promise and later an observable? I do not know why...
   public findChapterById(id: number): Promise<Chapter> {
-    return Promise.resolve(chapters[id]);
+    return Promise.resolve(this.chapters[id]);
   }
 }

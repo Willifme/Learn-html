@@ -4,16 +4,32 @@ import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable } from 
 
 import { MarkdownService } from './markdown.service';
 import { Chapter } from './chapter';
+
+const chapterOne: Chapter = {
+    title: 'Introduction',
+    paragraphs: [
+        {
+            title: 'What is HTML?',
+            content: 'Something here',
+        }
+    ]
+};
     
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [MarkdownService],
+  providers: [],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 //  private chapters: FirebaseListObservable<Chapter[]>;
-    constructor() {}
+  private chapters: Chapter[];
+  
+  constructor(private markdown: MarkdownService) {}
+  
+  public ngOnInit(): void {
+    this.markdown.chapters = [chapterOne, chapterOne];
+  }
 
 //  constructor(private angularFire: AngularFire) {} 
     // Lazily re-define the firebaseAuthConfig object. I can't seem to import it from the module. 
