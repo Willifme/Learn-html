@@ -21,7 +21,5 @@ export class ChapterComponent implements OnInit {
   
   public ngOnInit(): void {
     this.route.data.subscribe(data => this.chapter = data['chapter']);
-
-    console.log(this.chapter);
   }
 }

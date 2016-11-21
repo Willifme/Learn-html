@@ -36,10 +36,8 @@ export class MarkdownService {
     return this.markdown.parse(text);
   }
   
-  // TODO: Handle error
-  public findChapterById(id: number): Observable<Chapter> {
-    let chapterSubject: Subject<Chapter> = new Subject<Chapter>();
-
-    return chapterSubject.asObservable();
+  // Why use a promise and later an observable? I do not know why...
+  public findChapterById(id: number): Promise<Chapter> {
+    return Promise.resolve(chapters[id]);
   }
 }
