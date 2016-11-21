@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import * as marked from 'marked';
 
-import { Chapter } from './markdown';
+import { Chapter } from './chapter';
 
 const chapterOne: Chapter = {
     title: 'Introduction',

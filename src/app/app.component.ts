@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable } from 'angularfire2';
 
 import { MarkdownService } from './markdown.service';
-import { Chapter } from './markdown';
+import { Chapter } from './chapter';
     
 @Component({
   selector: 'app-root',

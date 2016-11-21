@@ -6,7 +6,7 @@ import { ToolbarTitleService } from '../toolbar-title.service';
 
 import { ParagraphComponent } from '../paragraph/paragraph.component';
 
-import { Chapter } from '../markdown';
+import { Chapter } from '../chapter';
 
 @Component({
   selector: 'content-chapter',

@@ -4,7 +4,7 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 import { Observable } from 'rxjs/Observable';
 
 import { MarkdownService } from '../markdown.service';
-import { Chapter } from '../markdown';
+import { Chapter } from '../chapter';
 
 import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/operator/map';
