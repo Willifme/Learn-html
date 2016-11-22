@@ -15,14 +15,14 @@ export class ChapterResolver implements Resolve<Chapter> {
 
     public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Chapter> {
       const id: number = route.params['id'];
-      
+
       return Observable.fromPromise(this.markdown.findChapterById(id))
         .map(data => {
           if (data) {
             return data;
           } else {
             this.router.navigate(['/']);
-            
+
             return false;
           }
         })

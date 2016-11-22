@@ -1,5 +1,5 @@
-import { DomSanitizer, SafeHtml, BrowserModule } from '@angular/platform-browser';
-import { NgModule, ValueProvider } from '@angular/core';
+import {BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';

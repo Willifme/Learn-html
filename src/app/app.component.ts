@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable } from 'angularfire2';
+// import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable } from 'angularfire2';
 
 import { MarkdownService } from './markdown.service';
 import { Chapter } from './chapter';
@@ -14,7 +13,7 @@ const chapterOne: Chapter = {
         }
     ]
 };
-    
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -23,10 +22,8 @@ const chapterOne: Chapter = {
 })
 export class AppComponent implements OnInit {
 //  private chapters: FirebaseListObservable<Chapter[]>;
-  private chapters: Chapter[];
-  
   constructor(private markdown: MarkdownService) {}
-  
+
   public ngOnInit(): void {
     this.markdown.chapters = [chapterOne, chapterOne];
   }

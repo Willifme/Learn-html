@@ -1,4 +1,4 @@
-import { Injectable, Inject, Optional } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 
@@ -7,7 +7,7 @@ export class ToolbarTitleService {
   private title: string;
   private titleSubject: Subject<string> = new Subject<string>();
 
-  private name: string = "Learn HTML";
+  private name: string = 'Learn HTML';
 
   public setTitle(newTitle?: string): void {
     // Clear the string...
@@ -15,7 +15,7 @@ export class ToolbarTitleService {
 
     // Only append the title if the title is set (e.g. not at root)
     if (newTitle != null) {
-      this.title = `${this.name} - ${newTitle}`;  
+      this.title = `${this.name} - ${newTitle}`;
 
     } else {
       this.title = this.name;
@@ -26,5 +26,5 @@ export class ToolbarTitleService {
 
   public getTitle(): Observable<string> {
     return this.titleSubject.asObservable();
-  } 
+  }
 }
