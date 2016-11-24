@@ -18,6 +18,7 @@ import { SanitiseHtmlPipe } from './sanitise-html.pipe';
 
 import { ToolbarTitleService } from './toolbar-title.service';
 import { MarkdownService } from './markdown.service';
+import { HtmlEditorComponent } from './html-editor/html-editor.component';
 
 // TODO: Update this
 export const firebaseConfig = {
@@ -39,7 +40,8 @@ export const firebaseAuthConfig = {
     SanitiseHtmlPipe,
     ParagraphComponent,
     ChapterComponent,
-    LayoutComponent
+    LayoutComponent,
+    HtmlEditorComponent
   ],
   imports: [
     BrowserModule,
